@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="Meet Rajkishore Mahato, a Product and Business Analyst turning data into better product, operational, and business decisions.">
+  <title>Rajkishore Mahato — Product &amp; Business Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f4ef;
+      --surface: #fffefa;
+      --ink: #1d2824;
+      --muted: #68736d;
+      --line: #e4e6de;
+      --green: #c8ef75;
+      --green-ink: #354b1a;
+      --deep: #20352d;
+      --deep-soft: #2b443a;
+      --lavender: #e9e5f7;
+      --peach: #f2d5c1;
+      --shadow: 0 18px 50px rgba(32, 53, 45, .075);
+      --radius: 22px;
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #151d19;
+      --surface: #202b25;
+      --ink: #f1f3eb;
+      --muted: #abb7ae;
+      --line: #35423a;
+      --green: #c8ef75;
+      --green-ink: #263819;
+      --deep: #121b16;
+      --deep-soft: #25352c;
+      --lavender: #302c3f;
+      --peach: #503c30;
+      --shadow: 0 18px 50px rgba(0, 0, 0, .18);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--paper);
+      color: var(--ink);
+      font: 400 15px/1.65 "DM Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      transition: background .25s, color .25s;
+    }
+    a { color: inherit; }
+    button { color: inherit; font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible, summary:focus-visible {
+      outline: 3px solid #8eae49;
+      outline-offset: 4px;
+    }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    .skip-link {
+      position: fixed; z-index: 20; top: 10px; left: 10px; padding: 10px 14px;
+      transform: translateY(-150%); border-radius: 9px; background: var(--green); color: #172019;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .site-header {
+      position: sticky; z-index: 10; top: 0;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+      background: color-mix(in srgb, var(--paper) 91%, transparent);
+      backdrop-filter: blur(16px);
+    }
+    .scroll-progress {
+      position: fixed; z-index: 30; top: 0; left: 0; width: 100%; height: 3px;
+      background: color-mix(in srgb, var(--line) 65%, transparent); pointer-events: none;
+    }
+    .scroll-progress-bar {
+      width: 100%; height: 100%; transform: scaleX(0); transform-origin: left center;
+      background: linear-gradient(90deg, #9fca48, #d7f078);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; flex: 0 0 auto; }
+    .brand-mark {
+      width: 38px; height: 38px; display: grid; place-items: center; border-radius: 13px;
+      background: var(--deep); color: var(--green); font: 700 14px "Space Grotesk", sans-serif; letter-spacing: -.7px;
+    }
+    .brand-name { font: 700 14px "Space Grotesk", sans-serif; letter-spacing: -.3px; }
+    .nav-links { display: flex; align-items: center; gap: 27px; }
+    .nav-links a { position: relative; color: var(--muted); font-size: 12px; font-weight: 600; text-decoration: none; transition: color .18s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a[aria-current="location"] { color: var(--ink); }
+    .nav-links a[aria-current="location"]::after {
+      position: absolute; right: 0; bottom: -7px; left: 0; height: 2px;
+      border-radius: 2px; background: #91aa60; content: "";
+    }
+    .nav-actions { display: flex; align-items: center; gap: 9px; }
+    .icon-button, .menu-button {
+      width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid var(--line);
+      border-radius: 12px; background: var(--surface); cursor: pointer;
+    }
+    .icon-button svg, .menu-button svg { width: 17px; height: 17px; }
+    .menu-button { display: none; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 43px; padding: 0 16px; border: 1px solid var(--line); border-radius: 12px;
+      background: var(--surface); color: var(--ink); font-size: 12px; font-weight: 700;
+      text-decoration: none; cursor: pointer; transition: transform .18s, border-color .18s, background .18s;
+    }
+    .button:hover { transform: translateY(-2px); border-color: #9aa79c; }
+    .button svg { width: 15px; height: 15px; }
+    .button.primary { border-color: var(--green); background: var(--green); color: #24311a; }
+    .button.dark { border-color: var(--deep); background: var(--deep); color: #fff; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); gap: 55px; align-items: center; padding: 77px 0 64px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; color: var(--muted);
+      font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 21px; height: 1px; background: #91aa60; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: "Space Grotesk", sans-serif; }
+    h1 {
+      max-width: 650px; margin: 18px 0 20px; font-size: clamp(42px, 6vw, 71px);
+      font-weight: 600; line-height: 1.035; letter-spacing: -4px;
+    }
+    h1 .accent { color: #68833f; }
+    .hero-copy { max-width: 560px; margin-bottom: 27px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+    .hero-copy strong { color: var(--ink); font-weight: 600; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .social-links { display: flex; align-items: center; flex-wrap: wrap; gap: 19px; margin-top: 24px; }
+    .social-links a { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 11px; font-weight: 600; text-decoration: none; }
+    .social-links a:hover { color: var(--ink); }
+    .social-links svg { width: 14px; height: 14px; }
+    .hero-art {
+      position: relative; min-height: 370px; overflow: hidden; border: 1px solid #385347;
+      border-radius: 28px; background: var(--deep); color: #f5f7ed; box-shadow: var(--shadow);
+      animation: hero-float 7s ease-in-out infinite;
+    }
+    .hero-art::before, .hero-art::after {
+      position: absolute; content: ""; border: 1px solid rgba(200, 239, 117, .15); border-radius: 50%;
+    }
+    .hero-art::before { width: 340px; height: 340px; top: -150px; right: -80px; }
+    .hero-art::after { width: 250px; height: 250px; top: -105px; right: -35px; }
+    .art-label { position: absolute; top: 24px; left: 25px; color: #becac0; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+    .chart { position: absolute; inset: 64px 21px 102px; width: calc(100% - 42px); height: calc(100% - 166px); }
+    .chart-grid line { stroke: rgba(235, 243, 230, .11); stroke-width: 1; }
+    .chart-area { fill: url(#area-fill); }
+    .chart-line {
+      fill: none; stroke: #c8ef75; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: chart-draw 1.8s .25s ease-out forwards;
+    }
+    .chart-dot { fill: #c8ef75; stroke: #20352d; stroke-width: 5; }
+    .chart-label { fill: #a7b6aa; font: 10px "DM Sans", sans-serif; }
+    .art-stat {
+      position: absolute; right: 24px; bottom: 23px; display: flex; align-items: center; gap: 13px;
+      padding: 13px 15px; border: 1px solid rgba(255,255,255,.13); border-radius: 15px;
+      background: rgba(255,255,255,.08); backdrop-filter: blur(8px);
+    }
+    .stat-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; background: var(--green); color: #26381b; font-size: 17px; }
+    .stat-number { display: block; font: 700 22px/1.1 "Space Grotesk", sans-serif; }
+    .stat-caption { display: block; margin-top: 3px; color: #c1ccc2; font-size: 9px; }
+    .art-note { position: absolute; left: 24px; bottom: 31px; max-width: 135px; color: #b6c3b9; font-size: 10px; line-height: 1.6; }
+    @keyframes hero-float { 50% { transform: translateY(-7px); } }
+    @keyframes chart-draw { to { stroke-dashoffset: 0; } }
+    .scroll-cue {
+      display: inline-flex; align-items: center; gap: 9px; margin-top: 21px;
+      color: var(--muted); font-size: 10px; font-weight: 700; text-decoration: none;
+    }
+    .scroll-cue:hover { color: var(--ink); }
+    .scroll-cue-arrow { display: inline-block; color: #77943f; animation: cue-bounce 1.5s ease-in-out infinite; }
+    @keyframes cue-bounce { 50% { transform: translateY(4px); } }
+    .metrics {
+      display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 0 100px;
+      border: 1px solid var(--line); border-radius: 18px; background: var(--surface);
+    }
+    .metric {
+      padding: 22px 24px; border: 0; border-right: 1px solid var(--line);
+      background: transparent; color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .metric:last-child { border-right: 0; }
+    .metric:hover { transform: translateY(-2px); background: var(--paper); }
+    .metric:active, .pop-trigger:active { transform: scale(.985); }
+    .metric strong { display: block; font: 600 26px/1.15 "Space Grotesk", sans-serif; letter-spacing: -1px; }
+    .metric span { display: block; margin-top: 6px; color: var(--muted); font-size: 10px; }
+    .section { margin-bottom: 103px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 27px; }
+    .section-heading h2 { margin: 8px 0 0; font-size: clamp(27px, 3.5vw, 38px); line-height: 1.15; letter-spacing: -1.6px; }
+    .section-intro { max-width: 385px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+    .role-panel { display: grid; grid-template-columns: .72fr 1.28fr; gap: 24px; padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+    .role-controls { display: flex; flex-direction: column; gap: 8px; }
+    .role-shuffle { align-self: flex-start; margin: 4px 0 0 5px; border: 0; background: transparent; color: var(--muted); font-size: 10px; font-weight: 700; cursor: pointer; }
+    .role-shuffle:hover { color: var(--ink); }
+    .role-choice {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      min-height: 46px; padding: 0 14px; border: 1px solid transparent; border-radius: 12px;
+      background: transparent; color: var(--muted); text-align: left; font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+    .role-choice::after { content: "↗"; opacity: 0; transition: opacity .18s; }
+    .role-choice:hover, .role-choice[aria-pressed="true"] { border-color: var(--line); background: var(--paper); color: var(--ink); }
+    .role-choice[aria-pressed="true"]::after { opacity: 1; }
+    .role-answer { display: flex; flex-direction: column; justify-content: center; min-height: 191px; padding: 22px 28px; border-radius: 17px; background: var(--deep); color: #f4f6ed; }
+    .role-answer .eyebrow { color: #b7c8b9; font-size: 9px; }
+    .role-answer .eyebrow::before { background: var(--green); }
+    .role-answer h3 { margin: 12px 0 7px; font-size: 24px; line-height: 1.2; letter-spacing: -.8px; }
+    .role-answer p { max-width: 560px; margin: 0; color: #c1ccc2; font-size: 12px; line-height: 1.75; }
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+    .value-card {
+      position: relative; min-height: 184px; padding: 21px; border: 1px solid var(--line);
+      border-radius: 17px; background: var(--surface); transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .value-icon { display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: 18px; border-radius: 11px; background: var(--green); color: #36491e; font-size: 16px; }
+    .value-card:nth-child(2) .value-icon { background: var(--lavender); color: #5a4d7b; }
+    .value-card:nth-child(3) .value-icon { background: var(--peach); color: #80553a; }
+    .value-card h3 { margin-bottom: 7px; font-size: 14px; letter-spacing: -.3px; }
+    .value-card p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .pop-trigger:focus-visible { outline-offset: 3px; }
+    .value-card:hover, .value-card:focus-within, .skill-group:hover, .skill-group:focus-within { transform: translateY(-3px); border-color: #9baa8f; box-shadow: var(--shadow); }
+    .card-hit-area { position: absolute; z-index: 1; inset: 0; border: 0; border-radius: inherit; background: transparent; cursor: pointer; }
+    .card-hit-area:focus-visible { outline-offset: 3px; }
+    .value-card::after, .skill-group::after, .education-item::after, .certificate::after {
+      position: absolute; top: 13px; right: 15px; color: var(--muted); content: "↗"; font-size: 12px;
+    }
+    .experience-list { display: grid; gap: 13px; }
+    .job {
+      overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--surface);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .job[open] { border-color: color-mix(in srgb, #91aa60 52%, var(--line)); box-shadow: var(--shadow); }
+    .job summary {
+      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px 20px;
+      padding: 21px 23px; cursor: pointer; list-style: none;
+    }
+    .job summary::-webkit-details-marker { display: none; }
+    .job-main { display: flex; flex-direction: column; gap: 4px; }
+    .job-title { font: 600 18px/1.3 "Space Grotesk", sans-serif; letter-spacing: -.5px; }
+    .job-company { color: var(--muted); font-size: 11px; }
+    .job-meta { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 10px; }
+    .job-meta strong { color: var(--ink); font-weight: 700; }
+    .job-meta .chevron { display: grid; place-items: center; width: 29px; height: 29px; border: 1px solid var(--line); border-radius: 9px; font-size: 15px; transition: transform .2s; }
+    .job[open] .chevron { transform: rotate(45deg); }
+    .job-body { padding: 0 23px 23px; }
+    .job-body ul { display: grid; gap: 11px; margin: 0; padding: 18px 0 0 18px; border-top: 1px solid var(--line); }
+    .job-body li { padding-left: 3px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .job-body li::marker { color: #799743; }
+    .job-body strong { color: var(--ink); font-weight: 700; }
+    .job-story { margin-top: 17px; }
+    .skills-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; }
+    .skill-group { position: relative; padding: 21px; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); transition: transform .2s, border-color .2s, box-shadow .2s; }
+    .skill-group h3 { margin: 0 0 15px; font-size: 13px; letter-spacing: -.2px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag { padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--muted); font-size: 10px; font-weight: 600; }
+    .bottom-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 20px; align-items: start; }
+    .education-card, .credentials-card { height: 100%; padding: 23px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+    .education-card h3, .credentials-card h3 { margin-bottom: 19px; font-size: 14px; }
+    .education-list { display: grid; gap: 16px; }
+    .education-item {
+      position: relative; display: grid; width: 100%; grid-template-columns: 1fr auto; gap: 4px 12px;
+      padding: 0 24px 14px 0; border: 0; border-bottom: 1px solid var(--line); background: transparent;
+      color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+      transition: transform .2s, color .2s;
+    }
+    .education-item:last-child { padding-bottom: 0; border-bottom: 0; }
+    .education-item strong { font-size: 11px; }
+    .education-item span { color: var(--muted); font-size: 10px; }
+    .education-item .date { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+    .certificate-list { display: flex; flex-direction: column; gap: 10px; }
+    .certificate {
+      position: relative; display: flex; width: 100%; align-items: center; gap: 12px; padding: 11px 30px 11px 12px;
+      border: 0; border-radius: 12px; background: var(--paper); color: var(--ink); font: inherit;
+      text-align: left; cursor: pointer; transition: transform .2s, background .2s;
+    }
+    .certificate-icon { display: grid; place-items: center; width: 33px; height: 33px; border-radius: 10px; background: var(--lavender); color: #625581; font-size: 13px; }
+    .certificate strong { display: block; font-size: 11px; }
+    .certificate span { color: var(--muted); font-size: 9px; }
+    .detail-dialog {
+      width: min(520px, calc(100% - 32px)); max-height: min(80vh, 680px); padding: 0;
+      overflow: auto; border: 1px solid var(--line); border-radius: 22px;
+      background: var(--surface); color: var(--ink); box-shadow: 0 30px 90px rgba(0, 0, 0, .28);
+    }
+    .detail-dialog[open] { animation: dialog-in .22s ease-out; }
+    .detail-dialog::backdrop { background: rgba(15, 24, 19, .62); backdrop-filter: blur(5px); }
+    @keyframes dialog-in { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .dialog-frame { padding: 27px; }
+    .dialog-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .dialog-kicker { color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+    .dialog-close {
+      width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--line);
+      border-radius: 10px; background: var(--paper); color: var(--ink); font-size: 19px; cursor: pointer;
+    }
+    .dialog-spark { display: grid; place-items: center; width: 44px; height: 44px; margin: 26px 0 15px; border-radius: 14px; background: var(--green); color: #34451e; font-size: 20px; }
+    .detail-dialog h2 { margin: 0 0 11px; font-size: clamp(24px, 5vw, 32px); line-height: 1.15; letter-spacing: -1px; }
+    .detail-dialog p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .dialog-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 25px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .dialog-footer span { color: var(--muted); font-size: 9px; }
+    .contact {
+      position: relative; display: flex; align-items: center; justify-content: space-between; gap: 30px;
+      overflow: hidden; padding: 38px; border-radius: 24px; background: var(--deep); color: #f4f6ed;
+    }
+    .contact::after {
+      position: absolute; content: ""; width: 255px; height: 255px; right: 17%; bottom: -218px;
+      border: 1px solid rgba(200, 239, 117, .24); border-radius: 50%; box-shadow: 0 0 0 25px rgba(200, 239, 117, .035), 0 0 0 50px rgba(200, 239, 117, .035);
+    }
+    .contact-copy { position: relative; z-index: 1; }
+    .contact .eyebrow { color: #b7c8b9; }
+    .contact h2 { max-width: 540px; margin: 12px 0 9px; font-size: clamp(27px, 4vw, 39px); line-height: 1.14; letter-spacing: -1.5px; }
+    .contact p { max-width: 480px; margin: 0; color: #c1ccc2; font-size: 12px; }
+    .contact .button { position: relative; z-index: 1; flex: 0 0 auto; }
+    .site-footer { display: flex; justify-content: space-between; gap: 15px; padding: 25px 0 32px; color: var(--muted); font-size: 10px; }
+    .site-footer a { text-decoration: none; }
+    .site-footer a:hover { color: var(--ink); }
+    .toast {
+      position: fixed; z-index: 20; right: 20px; bottom: 20px; max-width: min(340px, calc(100% - 40px));
+      padding: 12px 16px; transform: translateY(8px); border-radius: 11px; background: var(--deep);
+      color: white; font-size: 11px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .motion-ready .reveal-on-scroll {
+      opacity: 0; transform: translateY(26px);
+      transition: opacity .72s cubic-bezier(.2,.7,.2,1), transform .72s cubic-bezier(.2,.7,.2,1);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+    .motion-ready .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 850px) {
+      .wrap { width: min(100% - 36px, 700px); }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 11px; }
+      .hero { grid-template-columns: 1fr .8fr; gap: 28px; padding: 62px 0 52px; }
+      h1 { font-size: clamp(42px, 7vw, 60px); letter-spacing: -3px; }
+      .hero-art { min-height: 340px; }
+      .metrics { margin-bottom: 78px; }
+      .metric { padding: 19px 16px; }
+      .section { margin-bottom: 80px; }
+    }
+    @media (max-width: 650px) {
+      html { scroll-padding-top: 76px; }
+      .wrap { width: calc(100% - 34px); }
+      .nav { min-height: 67px; gap: 10px; }
+      .brand-mark { width: 35px; height: 35px; }
+      .nav-actions { gap: 7px; }
+      .menu-button { display: grid; }
+      .nav-actions > .button { min-height: 39px; padding: 0 11px; font-size: 10px; }
+      .nav-links {
+        position: absolute; top: 66px; left: 0; right: 0; display: none; flex-direction: column;
+        align-items: stretch; gap: 0; padding: 8px 17px 14px; border-bottom: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 4px; border-bottom: 1px solid var(--line); font-size: 12px; }
+      .nav-links a:last-child { border-bottom: 0; }
+      .hero { grid-template-columns: 1fr; gap: 32px; padding: 49px 0 40px; }
+      h1 { max-width: 540px; margin-top: 14px; font-size: clamp(43px, 12vw, 63px); letter-spacing: -2.7px; }
+      .hero-copy { font-size: 14px; }
+      .hero-art { min-height: 320px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); margin-bottom: 70px; }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .metric strong { font-size: 23px; }
+      .section { margin-bottom: 70px; }
+      .section-heading { display: block; margin-bottom: 20px; }
+      .section-intro { margin-top: 11px; }
+      .role-panel { grid-template-columns: 1fr; gap: 14px; padding: 15px; }
+      .role-controls { display: grid; grid-template-columns: 1fr 1fr; }
+      .role-choice { min-height: 42px; padding: 0 10px; font-size: 10px; }
+      .role-answer { min-height: 184px; padding: 21px; }
+      .role-answer h3 { font-size: 21px; }
+      .value-grid { grid-template-columns: 1fr; gap: 10px; }
+      .value-card { display: grid; grid-template-columns: 36px 1fr; column-gap: 13px; min-height: 0; padding: 16px; }
+      .value-icon { grid-row: 1 / span 2; margin: 0; }
+      .value-card h3 { margin: 1px 0 4px; }
+      .value-card p { grid-column: 2; }
+      .job summary { padding: 18px; }
+      .job-title { font-size: 16px; }
+      .job-meta { font-size: 9px; }
+      .job-body { padding: 0 18px 19px; }
+      .job-body li { font-size: 10px; }
+      .dialog-frame { padding: 22px; }
+      .skills-layout, .bottom-grid { grid-template-columns: 1fr; }
+      .contact { align-items: flex-start; flex-direction: column; padding: 28px 23px; }
+      .contact .button { align-self: flex-start; }
+      .site-footer { flex-direction: column; gap: 7px; }
+    }
+    @media (max-width: 380px) {
+      .wrap { width: calc(100% - 28px); }
+      .brand-name { font-size: 12px; }
+      .nav-actions > .button { padding: 0 9px; }
+      .hero-actions .button { padding: 0 12px; }
+      .role-choice { padding: 0 7px; font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+      .hero-art, .chart-line, .scroll-cue-arrow { animation: none !important; }
+      .chart-line { stroke-dashoffset: 0; }
+      .motion-ready .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" role="progressbar" aria-label="Page reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div class="scroll-progress-bar"></div>
+  </div>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Rajkishore Mahato, home">
+        <span class="brand-mark" aria-hidden="true">RM</span>
+        <span class="brand-name">RAJKISHORE MAHATO</span>
+      </a>
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a href="#why-me">Why me</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch theme">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.2 15.1A8.3 8.3 0 0 1 8.9 3.8 8.4 8.4 0 1 0 20.2 15.1Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="button primary" href="assets/Rajkishore-Mahato-Resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Resume
+        </a>
+        <button class="menu-button" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow">Product &amp; Business Analyst &nbsp;·&nbsp; Bengaluru 560037, India</div>
+          <h1 id="hero-title">I turn data into <span class="accent">better decisions.</span></h1>
+          <p class="hero-copy">
+            I’m Rajkishore, an analyst with <strong>3.5+ years of experience</strong> connecting product performance,
+            customer needs, and operational data to practical business outcomes. I bring SQL, Python, and Power BI
+            together with a bias for clear communication and work teams can act on.
+          </p>
+          <div class="hero-actions">
+            <a class="button dark" href="#experience">Explore my impact <span aria-hidden="true">↘</span></a>
+            <a class="button" href="mailto:rajkishoremahato9@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="social-links" aria-label="Profile links">
+            <a href="https://www.linkedin.com/in/rajkishore-mahato-a15257229/" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.9H4.97V9.36h2.96v9.54ZM6.45 8.05a1.72 1.72 0 1 1 0-3.44 1.72 1.72 0 0 1 0 3.44Zm12.49 10.85h-2.95v-4.64c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.72H9.7V9.36h2.83v1.3h.04c.39-.74 1.36-1.52 2.79-1.52 2.98 0 3.53 1.96 3.53 4.5v5.26h.05Z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/RajkishoreMahato" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.68-3.75-1.32-3.75-1.32-.5-1.29-1.24-1.64-1.24-1.64-1.01-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.06 1.14a10.6 10.6 0 0 1 5.57 0c2.13-1.44 3.06-1.14 3.06-1.14.61 1.54.23 2.68.11 2.96.72.78 1.15 1.77 1.15 2.99 0 4.29-2.61 5.23-5.1 5.51.4.35.75 1.02.75 2.06v3.05c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg>
+              GitHub
+            </a>
+            <a href="tel:+917070113060">+91 70701 13060</a>
+          </div>
+          <a class="scroll-cue" href="#why-me">Scroll to explore <span class="scroll-cue-arrow" aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-art" role="img" aria-label="Illustration of an upward-trending analytics chart and a 15 percent improvement metric">
+          <span class="art-label">From signal to progress</span>
+          <svg class="chart" viewBox="0 0 420 230" role="presentation" aria-hidden="true">
+            <defs>
+              <linearGradient id="area-fill" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#c8ef75" stop-opacity=".28"/>
+                <stop offset="1" stop-color="#c8ef75" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g class="chart-grid">
+              <line x1="28" y1="32" x2="405" y2="32"/><line x1="28" y1="82" x2="405" y2="82"/>
+              <line x1="28" y1="132" x2="405" y2="132"/><line x1="28" y1="182" x2="405" y2="182"/>
+            </g>
+            <path class="chart-area" d="M28 178 C72 173 81 145 121 152 S181 133 210 116 S264 126 294 83 S350 75 405 35 V190 H28Z"/>
+            <path class="chart-line" d="M28 178 C72 173 81 145 121 152 S181 133 210 116 S264 126 294 83 S350 75 405 35"/>
+            <circle class="chart-dot" cx="294" cy="83" r="6"/>
+            <text class="chart-label" x="27" y="214">INSIGHT</text>
+            <text class="chart-label" x="348" y="214">IMPACT</text>
+          </svg>
+          <p class="art-note">Curiosity in.<br>Measurable change out.</p>
+          <div class="art-stat">
+            <span class="stat-icon" aria-hidden="true">↗</span>
+            <span><strong class="stat-number">+15%</strong><span class="stat-caption">operational efficiency at CommerceIQ</span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Career highlights">
+        <button class="metric pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="3.5+ years in analytics" data-popup-copy="Rajkishore's experience spans product analysis at CommerceIQ, technical analysis at JLL, and business development at Bizpole. Across these roles, he has worked with product, operational, and commercial data."><strong>3.5+</strong><span>years in analytics</span></button>
+        <button class="metric pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="10,000 products each month" data-popup-copy="At CommerceIQ, NLP rules classify 10,000 products monthly. The work covered 30% of product data and contributed to a 15% improvement in operational efficiency."><strong>10K</strong><span>products classified monthly</span></button>
+        <button class="metric pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="50+ reports at JLL" data-popup-copy="At JLL, ServiceNow and Confluence dashboards and more than 50 reports improved SLA compliance by 20% and operational visibility by 30%."><strong>50+</strong><span>operational reports delivered</span></button>
+        <button class="metric pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="98% asset data accuracy" data-popup-copy="At JLL, Rajkishore maintained 98% accuracy across 200 IT and facilities assets while monitoring Iconics and KODE Labs systems."><strong>98%</strong><span>asset data accuracy maintained</span></button>
+      </section>
+
+      <section class="section" id="why-me" aria-labelledby="why-title">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">The case for Rajkishore</div>
+            <h2 id="why-title">A useful analyst is more than a dashboard.</h2>
+          </div>
+          <p class="section-intro">Choose a role, shuffle for a new angle, or tap any card to open a little more of the story. No login, no backend—just click around.</p>
+        </div>
+        <div class="role-panel">
+          <div class="role-controls" role="group" aria-label="Choose a role">
+            <button class="role-choice" type="button" data-role="product" aria-pressed="true">Product analytics</button>
+            <button class="role-choice" type="button" data-role="business" aria-pressed="false">Business analysis</button>
+            <button class="role-choice" type="button" data-role="operations" aria-pressed="false">Operations &amp; BI</button>
+            <button class="role-shuffle" id="role-shuffle" type="button">Surprise me <span aria-hidden="true">↻</span></button>
+          </div>
+          <div class="role-answer" aria-live="polite">
+            <div class="eyebrow" id="role-label">A fit for product teams</div>
+            <h3 id="role-title">Make product signals easier to act on.</h3>
+            <p id="role-copy">At CommerceIQ, I classify 10,000 products a month with NLP rules, analyze performance trends, and partner across five teams to improve operational efficiency and delivery.</p>
+          </div>
+        </div>
+        <div class="value-grid">
+          <article class="value-card">
+            <span class="value-icon" aria-hidden="true">⌕</span>
+            <h3>I find the signal</h3>
+            <p>SQL, Python, and quantitative analysis help me move from noisy data to a clear, testable explanation.</p>
+            <button class="card-hit-area pop-trigger" type="button" aria-haspopup="dialog" aria-label="More about how I find the signal" data-popup-title="I find the signal" data-popup-copy="SQL, Python, and quantitative analysis help turn noisy data into a clear, testable explanation. Rajkishore has used product performance data, sales analysis, and root-cause analysis to find practical opportunities for improvement."></button>
+          </article>
+          <article class="value-card">
+            <span class="value-icon" aria-hidden="true">◎</span>
+            <h3>I connect the dots</h3>
+            <p>I translate findings for product, operations, and business partners—not just for the dashboard.</p>
+            <button class="card-hit-area pop-trigger" type="button" aria-haspopup="dialog" aria-label="More about how I connect the dots" data-popup-title="I connect the dots" data-popup-copy="Analysis only matters when people can use it. Rajkishore has partnered with cross-functional product teams, operations stakeholders, and business leaders to turn findings into shared priorities."></button>
+          </article>
+          <article class="value-card">
+            <span class="value-icon" aria-hidden="true">↗</span>
+            <h3>I stay close to outcomes</h3>
+            <p>My work has contributed to better SLAs, faster incident resolution, improved data quality, and more efficient decisions.</p>
+            <button class="card-hit-area pop-trigger" type="button" aria-haspopup="dialog" aria-label="More about how I focus on outcomes" data-popup-title="I stay close to outcomes" data-popup-copy="Reported outcomes include faster incident resolution, improved SLA compliance, more accurate asset data, better milestone delivery, and increased operational efficiency."></button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Where I’ve made a difference</div>
+            <h2 id="experience-title">Experience, with outcomes.</h2>
+          </div>
+          <p class="section-intro">Three roles across product analytics, technology operations, and business development—each grounded in measurable improvement.</p>
+        </div>
+        <div class="experience-list">
+          <details class="job" open>
+            <summary>
+              <span class="job-main"><span class="job-title">Product Analyst</span><span class="job-company">CommerceIQ · Bengaluru, India</span></span>
+              <span class="job-meta"><strong>Mar 2026 – Present</strong><span class="chevron" aria-hidden="true">+</span></span>
+            </summary>
+            <div class="job-body">
+              <ul>
+                <li>Engineered NLP rules that categorize <strong>30% of product data</strong>, classifying <strong>10,000 products monthly</strong> and improving operational efficiency by <strong>15%</strong>.</li>
+                <li>Analyzed product performance to identify trends and implement optimizations associated with a <strong>15% performance improvement</strong>.</li>
+                <li>Partnered with <strong>five cross-functional teams</strong> to refine product strategies and improve milestone delivery efficiency by <strong>20%</strong>.</li>
+                <li>Researched <strong>15 product initiatives</strong> and produced <strong>five competitive reports monthly</strong> to support strategic planning.</li>
+                <li>Coordinated <strong>10 stakeholders</strong> supporting two product databases, improving data quality and enabling real-time analytics.</li>
+              </ul>
+              <button class="button pop-trigger job-story" type="button" aria-haspopup="dialog" data-popup-title="CommerceIQ · Product analytics" data-popup-copy="Rajkishore combines NLP-based product categorization, performance analysis, competitive research, and cross-functional collaboration. His resume reports 10,000 products classified monthly, 15% improvement in operational efficiency, and 20% better milestone delivery efficiency.">Pop open this case <span aria-hidden="true">↗</span></button>
+            </div>
+          </details>
+          <details class="job">
+            <summary>
+              <span class="job-main"><span class="job-title">Technical Analyst</span><span class="job-company">Jones Lang LaSalle (JLL) · Bengaluru, India</span></span>
+              <span class="job-meta"><strong>Nov 2023 – Mar 2026</strong><span class="chevron" aria-hidden="true">+</span></span>
+            </summary>
+            <div class="job-body">
+              <ul>
+                <li>Managed <strong>200 monthly incidents</strong> and <strong>30 weekly requests</strong> in ServiceNow; root-cause analysis reduced resolution time by <strong>25%</strong> and incident frequency by <strong>15%</strong>.</li>
+                <li>Maintained <strong>98% accuracy</strong> across 200 IT and facilities assets and monitored Iconics and KODE Labs systems, reducing operational downtime by <strong>15%</strong>.</li>
+                <li>Built ServiceNow and Confluence dashboards plus <strong>50+ reports</strong>, improving SLA compliance by <strong>20%</strong>, visibility by <strong>30%</strong>, and equipment performance by <strong>15%</strong>.</li>
+              </ul>
+              <button class="button pop-trigger job-story" type="button" aria-haspopup="dialog" data-popup-title="JLL · Operational analytics" data-popup-copy="At JLL, Rajkishore handled a steady flow of incidents and requests, used root-cause analysis, monitored asset data, and created dashboards and reports. Reported improvements include 25% faster resolution, 20% higher SLA compliance, and 30% better visibility.">Pop open this case <span aria-hidden="true">↗</span></button>
+            </div>
+          </details>
+          <details class="job">
+            <summary>
+              <span class="job-main"><span class="job-title">Business Development Executive</span><span class="job-company">Bizpole Business Solutions · Bengaluru, India</span></span>
+              <span class="job-meta"><strong>Jan 2023 – May 2023</strong><span class="chevron" aria-hidden="true">+</span></span>
+            </summary>
+            <div class="job-body">
+              <ul>
+                <li>Used market and sales analysis with quantitative modeling to inform stakeholders and contribute to a <strong>30% increase in client acquisition</strong>.</li>
+                <li>Built Power BI dashboards to track sales performance and key business metrics for data-informed decisions.</li>
+                <li>Analyzed customer data to shape marketing strategies associated with a <strong>20% increase in revenue</strong>.</li>
+              </ul>
+              <button class="button pop-trigger job-story" type="button" aria-haspopup="dialog" data-popup-title="Bizpole · Commercial analysis" data-popup-copy="At Bizpole Business Solutions, Rajkishore used market and sales analysis, quantitative modeling, customer data, and Power BI dashboards to support client acquisition and revenue strategies. His resume reports a 30% increase in client acquisition and a 20% increase in revenue.">Pop open this case <span aria-hidden="true">↗</span></button>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">My working toolkit</div>
+            <h2 id="skills-title">Tools that answer real questions.</h2>
+          </div>
+          <p class="section-intro">Tap a toolkit card to see how those skills connect to the work.</p>
+        </div>
+        <div class="skills-layout">
+          <article class="skill-group">
+            <h3>Analytics &amp; programming</h3>
+            <div class="tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Quantitative modeling</span><span class="tag">Big data analytics</span></div>
+            <button class="card-hit-area pop-trigger" type="button" aria-haspopup="dialog" aria-label="More about analytics and programming" data-popup-title="Analytics &amp; programming" data-popup-copy="SQL, Python, JavaScript, quantitative modeling, and big data analytics are part of Rajkishore's technical toolkit. The resume highlights practical analysis of product, operational, market, and sales data."></button>
+          </article>
+          <article class="skill-group">
+            <h3>Product &amp; business intelligence</h3>
+            <div class="tags"><span class="tag">Power BI</span><span class="tag">Data analysis</span><span class="tag">Data visualization</span><span class="tag">Dashboarding</span><span class="tag">NLP</span><span class="tag">Market research</span></div>
+            <button class="card-hit-area pop-trigger" type="button" aria-haspopup="dialog" aria-label="More about product and business intelligence" data-popup-title="Product &amp; business intelligence" data-popup-copy="Rajkishore has used Power BI, dashboarding, data visualization, NLP, and market research to clarify performance and support product and commercial decisions."></button>
+          </article>
+          <article class="skill-group">
+            <h3>IT service management &amp; operations</h3>
+            <div class="tags"><span class="tag">ServiceNow</span><span class="tag">Incident management</span><span class="tag">Problem management</span><span class="tag">SLA management</span><span class="tag">Asset management</span></div>
+            <button class="card-hit-area pop-trigger" type="button" aria-haspopup="dialog" aria-label="More about IT service management and operations" data-popup-title="IT service management &amp; operations" data-popup-copy="At JLL, Rajkishore worked with ServiceNow and incident, problem, SLA, and asset management—using operational analysis to improve resolution times, service levels, and visibility."></button>
+          </article>
+          <article class="skill-group">
+            <h3>Platforms</h3>
+            <div class="tags"><span class="tag">Confluence</span><span class="tag">Iconics</span><span class="tag">KODE Labs</span></div>
+            <button class="card-hit-area pop-trigger" type="button" aria-haspopup="dialog" aria-label="More about platforms" data-popup-title="Platforms" data-popup-copy="Platforms listed in Rajkishore's resume: Confluence, Iconics, and KODE Labs."></button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="education" aria-labelledby="education-title">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">A foundation for the work</div>
+            <h2 id="education-title">Education &amp; certifications.</h2>
+          </div>
+        </div>
+        <div class="bottom-grid">
+          <article class="education-card">
+            <h3>Education</h3>
+            <div class="education-list">
+              <button class="education-item pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="M.Sc. · Ranchi University" data-popup-copy="Rajkishore completed an M.Sc. at Ranchi University in 2020, graduating with a 7.8 CGPA."><strong>M.Sc.</strong><span>Ranchi University · 7.8 CGPA</span><span class="date">2020</span></button>
+              <button class="education-item pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="B.Sc. · Ravenshaw University" data-popup-copy="Rajkishore completed a B.Sc. at Ravenshaw University in 2018, graduating with a 7.3 CGPA."><strong>B.Sc.</strong><span>Ravenshaw University · 7.3 CGPA</span><span class="date">2018</span></button>
+              <button class="education-item pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="Class 12 · Kendriya Vidyalaya Meghahatubu" data-popup-copy="Rajkishore completed Class 12 at Kendriya Vidyalaya Meghahatubu in 2015 with 87%."><strong>Class 12</strong><span>Kendriya Vidyalaya Meghahatubu · 87%</span><span class="date">2015</span></button>
+              <button class="education-item pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="Class 10 · Kendriya Vidyalaya Meghahatubu" data-popup-copy="Rajkishore completed Class 10 at Kendriya Vidyalaya Meghahatubu in 2014 with 91%."><strong>Class 10</strong><span>Kendriya Vidyalaya Meghahatubu · 91%</span><span class="date">2014</span></button>
+            </div>
+          </article>
+          <article class="credentials-card">
+            <h3>Certifications · Cisco</h3>
+            <div class="certificate-list">
+              <button class="certificate pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="Cisco · Data Analytics" data-popup-copy="Data Analytics certification listed on Rajkishore's resume."><span class="certificate-icon" aria-hidden="true">↗</span><span><strong>Data Analytics</strong><span>Cisco</span></span></button>
+              <button class="certificate pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="Cisco · Python" data-popup-copy="Python certification listed on Rajkishore's resume."><span class="certificate-icon" aria-hidden="true">⌘</span><span><strong>Python</strong><span>Cisco</span></span></button>
+              <button class="certificate pop-trigger" type="button" aria-haspopup="dialog" data-popup-title="Cisco · JavaScript" data-popup-copy="JavaScript certification listed on Rajkishore's resume."><span class="certificate-icon" aria-hidden="true">JS</span><span><strong>JavaScript</strong><span>Cisco</span></span></button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-copy">
+          <div class="eyebrow">Good work starts with a conversation</div>
+          <h2 id="contact-title">Have a problem worth solving?</h2>
+          <p>I’d be glad to hear what your team is working on and where better analysis could make a difference.</p>
+        </div>
+        <a class="button primary" href="mailto:rajkishoremahato9@gmail.com">
+          Email Rajkishore <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+
+      <footer class="site-footer">
+        <span>© <span id="year">2026</span> Rajkishore Mahato · Bengaluru 560037, India</span>
+        <span><a href="mailto:rajkishoremahato9@gmail.com">rajkishoremahato9@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+917070113060">+91 70701 13060</a></span>
+      </footer>
+    </div>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-copy">
+    <div class="dialog-frame">
+      <div class="dialog-top">
+        <span class="dialog-kicker">A little more of the story</span>
+        <button class="dialog-close" id="dialog-close" type="button" aria-label="Close pop-up">×</button>
+      </div>
+      <span class="dialog-spark" aria-hidden="true">✦</span>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-copy"></p>
+      <div class="dialog-footer">
+        <span>Static portfolio · no login needed</span>
+        <a class="button primary" href="mailto:rajkishoremahato9@gmail.com">Say hello ↗</a>
+      </div>
+    </div>
+  </dialog>
+  <script>
+    (() => {
+      const roleCopy = {
+        product: {
+          label: "A fit for product teams",
+          title: "Make product signals easier to act on.",
+          copy: "At CommerceIQ, I classify 10,000 products a month with NLP rules, analyze performance trends, and partner across five teams to improve operational efficiency and delivery."
+        },
+        business: {
+          label: "A fit for business teams",
+          title: "Connect analysis to commercial outcomes.",
+          copy: "I’ve paired market research and quantitative sales analysis with stakeholder recommendations—contributing to a 30% increase in client acquisition and a 20% increase in revenue."
+        },
+        operations: {
+          label: "A fit for operations & BI teams",
+          title: "Give teams a clearer view of performance.",
+          copy: "At JLL, I built ServiceNow and Confluence dashboards and 50+ reports, helping improve SLA compliance by 20%, operational visibility by 30%, and incident resolution time by 25%."
+        }
+      };
+
+      const roleButtons = document.querySelectorAll("[data-role]");
+      const roleLabel = document.getElementById("role-label");
+      const roleTitle = document.getElementById("role-title");
+      const roleDescription = document.getElementById("role-copy");
+      const menuButton = document.getElementById("menu-toggle");
+      const navigation = document.getElementById("site-nav");
+      const themeButton = document.getElementById("theme-toggle");
+      const root = document.documentElement;
+      const detailDialog = document.getElementById("detail-dialog");
+      const dialogTitle = document.getElementById("dialog-title");
+      const dialogCopy = document.getElementById("dialog-copy");
+
+      roleButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const content = roleCopy[button.dataset.role];
+          roleButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+          roleLabel.textContent = content.label;
+          roleTitle.textContent = content.title;
+          roleDescription.textContent = content.copy;
+        });
+      });
+
+      document.getElementById("role-shuffle").addEventListener("click", () => {
+        const selected = document.querySelector('[data-role][aria-pressed="true"]');
+        const choices = [...roleButtons].filter((button) => button !== selected);
+        choices[Math.floor(Math.random() * choices.length)].click();
+      });
+
+      document.addEventListener("click", (event) => {
+        const trigger = event.target.closest(".pop-trigger");
+        if (!trigger) return;
+        dialogTitle.textContent = trigger.dataset.popupTitle;
+        dialogCopy.textContent = trigger.dataset.popupCopy;
+        detailDialog.showModal();
+      });
+
+      document.getElementById("dialog-close").addEventListener("click", () => detailDialog.close());
+      detailDialog.addEventListener("click", (event) => {
+        if (event.target === detailDialog) detailDialog.close();
+      });
+
+      themeButton.addEventListener("click", () => {
+        const dark = root.dataset.theme !== "dark";
+        root.dataset.theme = dark ? "dark" : "light";
+        themeButton.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+        themeButton.title = dark ? "Switch to light theme" : "Switch to dark theme";
+      });
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = menuButton.getAttribute("aria-expanded") !== "true";
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+        navigation.classList.toggle("open", isOpen);
+      });
+
+      navigation.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+          navigation.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open navigation");
+        }
+      });
+
+      const progress = document.querySelector(".scroll-progress");
+      const progressBar = document.querySelector(".scroll-progress-bar");
+      let progressFramePending = false;
+      function updateScrollProgress() {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const amount = scrollableHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollableHeight)) : 0;
+        progressBar.style.transform = `scaleX(${amount})`;
+        progress.setAttribute("aria-valuenow", String(Math.round(amount * 100)));
+        progressFramePending = false;
+      }
+
+      window.addEventListener("scroll", () => {
+        if (progressFramePending) return;
+        progressFramePending = true;
+        window.requestAnimationFrame(updateScrollProgress);
+      }, { passive: true });
+      window.addEventListener("resize", updateScrollProgress, { passive: true });
+      updateScrollProgress();
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!prefersReducedMotion && "IntersectionObserver" in window) {
+        const revealItems = document.querySelectorAll(".metrics, .section-heading, .role-panel, .value-card, .job, .skill-group, .education-card, .credentials-card, .contact");
+        revealItems.forEach((element) => {
+          element.classList.add("reveal-on-scroll");
+          const siblingIndex = Array.from(element.parentElement.children).indexOf(element);
+          element.style.setProperty("--reveal-delay", `${Math.min(siblingIndex, 3) * 70}ms`);
+        });
+        document.documentElement.classList.add("motion-ready");
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -36px 0px" });
+        revealItems.forEach((element) => revealObserver.observe(element));
+      }
+
+      if ("IntersectionObserver" in window) {
+        const navigationLinks = [...document.querySelectorAll(".nav-links a")];
+        const observedSections = navigationLinks
+          .map((link) => document.querySelector(link.getAttribute("href")))
+          .filter(Boolean);
+        const sectionObserver = new IntersectionObserver((entries) => {
+          const current = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!current) return;
+          navigationLinks.forEach((link) => {
+            if (link.hash === `#${current.target.id}`) link.setAttribute("aria-current", "location");
+            else link.removeAttribute("aria-current");
+          });
+        }, { threshold: [0.12, 0.3, 0.55], rootMargin: "-18% 0px -62% 0px" });
+        observedSections.forEach((section) => sectionObserver.observe(section));
+      }
+
+      document.getElementById("year").textContent = String(new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>
